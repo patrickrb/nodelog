@@ -237,3 +237,20 @@
   background: var(--line-hi);
   filter: brightness(1.4);
 }
+
+/* ──────────────────────────────────────────────────────────────
+   Suppress password-manager autofill icon overlays
+   ──────────────────────────────────────────────────────────────
+   LastPass injects <svg data-lastpass-icon="true"> overlays
+   positioned absolutely over inputs it thinks are credentials,
+   regardless of data-lpignore. Since this app is ham-radio data
+   (callsign, RST, datetime, city, etc.) and not credentials, we
+   hide the in-field icon globally. LP/1P autofill still works on
+   the auth forms via the extension's keyboard shortcut and
+   dropdown — only the in-field icon overlay is hidden. */
+svg[data-lastpass-icon="true"],
+com-1password-button,
+[data-dashlane-rid],
+[data-bitwarden-watching] {
+  display: none !important;
+}

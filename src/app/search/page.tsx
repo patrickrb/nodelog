@@ -794,6 +794,16 @@ export default function SearchPage() {
               <FilterChips chips={activeFilterChips} onRemoveFilter={removeFilter} />
             </CardHeader>
             <CardContent className="space-y-6">
+              {/* Wrapping the filter fields in a <form> gives LastPass a form
+                  context to bind to, so it respects data-lpignore on the
+                  individual inputs and stops attaching its autofill icon.
+                  Search is debounced on filter change, so the form has no
+                  real submit action — Enter is suppressed via preventDefault. */}
+              <form
+                autoComplete="off"
+                onSubmit={(e) => e.preventDefault()}
+                className="space-y-6"
+              >
               {/* Quick Filters */}
               <div className="space-y-2">
                 <Label>Quick Filters</Label>
@@ -819,6 +829,7 @@ export default function SearchPage() {
                   <Label htmlFor="callsign">Callsign</Label>
                   <Input
                     id="callsign"
+                    type="search"
                     placeholder="e.g., W1AW"
                     value={filters.callsign}
                     onChange={(e) => handleFilterChange('callsign', e.target.value)}
@@ -828,6 +839,7 @@ export default function SearchPage() {
                   <Label htmlFor="name">Name</Label>
                   <Input
                     id="name"
+                    type="search"
                     placeholder="Operator name"
                     value={filters.name}
                     onChange={(e) => handleFilterChange('name', e.target.value)}
@@ -837,6 +849,7 @@ export default function SearchPage() {
                   <Label htmlFor="qth">QTH</Label>
                   <Input
                     id="qth"
+                    type="search"
                     placeholder="Location"
                     value={filters.qth}
                     onChange={(e) => handleFilterChange('qth', e.target.value)}
@@ -922,6 +935,7 @@ export default function SearchPage() {
                         <Label htmlFor="gridLocator">Grid Locator</Label>
                         <Input
                           id="gridLocator"
+                          type="search"
                           placeholder="e.g., FN31pr"
                           value={filters.gridLocator}
                           onChange={(e) => handleFilterChange('gridLocator', e.target.value)}
@@ -968,6 +982,7 @@ export default function SearchPage() {
                   </div>
                 </>
               )}
+              </form>
             </CardContent>
           </Card>
 

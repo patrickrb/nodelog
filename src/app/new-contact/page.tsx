@@ -575,6 +575,9 @@ export default function NewContactPage() {
                     onChange={handleChange}
                     placeholder="W1AW"
                     autoComplete="off"
+                    data-lpignore="true"
+                    data-1p-ignore=""
+                    data-form-type="other"
                     className={cn(
                       'w-full bg-transparent border-0 border-b-2 border-line-hi text-fg font-mono text-[32px] sm:text-[56px] font-semibold tracking-[0.04em] py-3 sm:py-4 outline-none transition-colors uppercase placeholder:text-fg-3',
                       'focus:border-accent',
@@ -791,6 +794,10 @@ export default function NewContactPage() {
                       name="rst_sent"
                       value={formData.rst_sent}
                       onChange={handleChange}
+                      autoComplete="off"
+                      data-lpignore="true"
+                      data-1p-ignore=""
+                      data-form-type="other"
                       className="w-full bg-transparent border-0 outline-none text-center text-fg font-mono text-[28px] font-semibold mt-1"
                     />
                     <div className="flex justify-center gap-1 mt-2">
@@ -814,6 +821,10 @@ export default function NewContactPage() {
                       name="rst_received"
                       value={formData.rst_received}
                       onChange={handleChange}
+                      autoComplete="off"
+                      data-lpignore="true"
+                      data-1p-ignore=""
+                      data-form-type="other"
                       className="w-full bg-transparent border-0 outline-none text-center text-fg font-mono text-[28px] font-semibold mt-1"
                     />
                     <div className="flex justify-center gap-1 mt-2">

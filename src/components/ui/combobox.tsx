@@ -86,6 +86,10 @@ export function Combobox({
             placeholder={searchPlaceholder}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            autoComplete="off"
+            data-lpignore="true"
+            data-1p-ignore=""
+            data-form-type="other"
           />
         </div>
         <div className="max-h-[300px] overflow-y-auto">

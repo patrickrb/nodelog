@@ -434,6 +434,10 @@ export default function DashboardPage() {
                   value={tableSearch}
                   onChange={(e) => setTableSearch(e.target.value)}
                   placeholder="Search callsign, name, grid, frequency…"
+                  autoComplete="off"
+                  data-lpignore="true"
+                  data-1p-ignore=""
+                  data-form-type="other"
                   className="flex-1 min-w-0 bg-transparent border-0 outline-none text-fg text-[15px] placeholder:text-fg-3"
                 />
                 <Kbd>/</Kbd>

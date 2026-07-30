@@ -36,6 +36,14 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         type={type}
         className={cn(inputVariants({ size, mono, className }))}
         ref={ref}
+        // Suppress password-manager autofill UI by default — this app is
+        // ham-radio data, not credentials. Auth forms pass an explicit
+        // autoComplete value (e.g. "email", "current-password") which
+        // overrides via prop spread below.
+        autoComplete="off"
+        data-lpignore="true"
+        data-1p-ignore=""
+        data-form-type="other"
         {...props}
       />
     )
